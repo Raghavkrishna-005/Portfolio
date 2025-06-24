@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Head or Tails Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6dd5ed, #2193b0);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .coin {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: gold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      font-weight: bold;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background-color: #ffffff;
+      color: #333;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e0e0e0;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Head or Tails?</h1>
+  <div class="coin" id="coin">🪙</div>
+  <button onclick="flipCoin()">Flip Coin</button>
+  <div id="result"></div>
+
+  <script>
+    function flipCoin() {
+      const result = Math.random() < 0.5 ? "Heads" : "Tails";
+      const coin = document.getElementById("coin");
+      const resultText = document.getElementById("result");
+
+      // Change emoji based on result
+      coin.textContent = result === "Heads" ? "🙂" : "🦅";
+      resultText.textContent = "It's " + result + "!";
+    }
+  </script>
+
+</body>
+</html>

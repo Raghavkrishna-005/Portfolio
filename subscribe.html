@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subscribe button</title>
+    <style>
+      button {
+        padding: 10px;
+        border-radius: 20px;
+      }
+      .is-subscribed {
+        background-color: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="subscribe()">Subscribe</button>
+  </body>
+  <script>
+    let buttonElement = document.querySelector("button");
+    console.log(buttonElement);
+
+    function subscribe() {
+          console.log(buttonElement);
+      if (buttonElement.innerText == "Subscribe") {
+        buttonElement.innerText = "Subscribed";
+    
+        buttonElement.classList.add("is-subscribed");
+        console.log(buttonElement);
+      } else {
+        buttonElement.innerText = "Subscribe";
+        buttonElement.classList.remove("is-subscribed");
+          console.log(buttonElement);
+      }
+    }
+  </script>
+</html>
