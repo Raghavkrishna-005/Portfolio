@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShopEasy - Your Online Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Google Fonts Import */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #fafafa;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #243656;
+      color: #fff;
+      padding: 1.5em 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      height: 40px;
+      vertical-align: middle;
+      margin-right: 1em;
+    }
+    nav ul {
+      display: flex;
+      gap: 2em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav li {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    nav li:hover {
+      color: #e67e22;
+    }
+    .search-box {
+      margin-left: 2em;
+      padding: 0.5em;
+      border-radius: 4px;
+      border: none;
+      font-size: 1em;
+      outline: none;
+    }
+    main {
+      max-width: 1200px;
+      margin: 2em auto;
+      padding: 0 2vw;
+    }
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+    }
+    .product-card {
+      width: 260px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      overflow: hidden;
+      margin-bottom: 2em;
+      position: relative;
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+    }
+    .product-image {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      background: #f1f1f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-thumb {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 6px;
+    }
+    .discount-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #e67e22;
+      color: #fff;
+      padding: 0.2em 0.7em;
+      border-radius: 5px;
+      font-size: 0.9em;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .card-btn {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      padding: 0.6em;
+      background: #243656;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .product-card:hover .card-btn {
+      opacity: 1;
+    }
+    .product-info {
+      padding: 1.1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+    .product-brand {
+      font-size: 1.14em;
+      font-weight: 700;
+      margin: 0;
+    }
+    .product-short-des {
+      font-size: 0.98em;
+      color: #555;
+      margin: 0;
+    }
+    .price {
+      color: #e67e22;
+      font-weight: bold;
+      font-size: 1.18em;
+      margin-right: 0.5em;
+    }
+    .actual-price {
+      text-decoration: line-through;
+      color: #777;
+      font-size: 0.98em;
+    }
+    footer {
+      background: #243656;
+      color: #fff;
+      text-align: center;
+      padding: 1.3em 0;
+      margin-top: 2em;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        padding: 0 1vw;
+      }
+      .product-container {
+        flex-direction: column;
+        gap: 1.5em;
+        align-items: center;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display:flex;align-items:center;">
+      <img src="https://dummyimage.com/120x40/243656/e67e22&text=ShopEasy" class="logo" alt="ShopEasy Logo">
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>Products</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </div>
+    <input type="search" class="search-box" id="searchInput" placeholder="Search products...">
+  </header>
+  <main>
+    <section class="product-container" id="productContainer">
+      <!-- Product Card Example - You can duplicate this block for more products -->
+      <div class="product-card" data-brand="Adidas" data-name="Sneaker">
+        <div class="product-image">
+          <img src="https://dummyimage.com/200x150/eeeeee/222222&text=Sneaker" class="product-thumb" alt="Sneaker">
+          <span class="discount-tag">20% off</span>
+          <button class="card-btn">Add to Cart</button>
+        </div>
+        <div class="product-info">
+          <h3 class="product-brand">Adidas</h3>
+          <p class="product-short-des">Comfortable running sneaker</p>
+          <span class="price">$49.99</span>
+          <span class="actual-price">$62.00</span>
+        </div>
+      </div>
+      <div class="product-card" data-brand="Apple" data-name="Earbuds">
+        <div class="product-image">
+          <img src="https://dummyimage.com/200x150/eeeeee/222222&text=Earbuds" class="product-thumb" alt="Wireless Earbuds">
+          <span class="discount-tag">15% off</span>
+          <button class="card-btn">Add to Cart</button>
+        </div>
+        <div class="product-info">
+          <h3 class="product-brand">Apple</h3>
+          <p class="product-short-des">Wireless Earbuds</p>
+          <span class="price">$169.00</span>
+          <span class="actual-price">$199.00</span>
+        </div>
+      </div>
+      <div class="product-card" data-brand="HRX" data-name="Backpack">
+        <div class="product-image">
+          <img src="https://dummyimage.com/200x150/eeeeee/222222&text=Backpack" class="product-thumb" alt="Casual Backpack">
+          <span class="discount-tag">10% off</span>
+          <button class="card-btn">Add to Cart</button>
+        </div>
+        <div class="product-info">
+          <h3 class="product-brand">HRX</h3>
+          <p class="product-short-des">Large casual backpack</p>
+          <span class="price">$36.00</span>
+          <span class="actual-price">$40.00</span>
+        </div>
+      </div>
+      <!-- Add more products here... -->
+    </section>
+    <!-- Cart Sidebar -->
+    <aside id="cartSidebar" style="position:fixed;top:0;right:-350px;width:320px;height:100%;background:#fff;box-shadow:-2px 0 12px rgba(0,0,0,0.12);z-index:1000;transition:right 0.3s;padding:1.5em 1em;overflow-y:auto;">
+      <h2 style="margin-top:0;">Your Cart</h2>
+      <button id="closeCart" style="position:absolute;top:10px;right:15px;font-size:1.3em;background:none;border:none;cursor:pointer;">&times;</button>
+      <button id="clearCartBtn" style="margin-bottom:1em;background:#e74c3c;color:#fff;border:none;padding:0.5em 1em;border-radius:5px;cursor:pointer;">Remove All</button>
+      <div id="cartItems"></div>
+      <div id="cartEmpty" style="color:#888;margin-top:2em;">Your cart is empty.</div>
+    </aside>
+    <button id="openCartBtn" style="position:fixed;top:30px;right:30px;z-index:1100;background:#e67e22;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5em;box-shadow:0 2px 8px rgba(0,0,0,0.15);cursor:pointer;">🛒</button>
+  </main>
+  <footer>
+    <p>&copy; 2025 ShopEasy &mdash; Your Online Store</p>
+  </footer>
+  <script>
+    // Cart logic
+    const cartSidebar = document.getElementById('cartSidebar');
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCart = document.getElementById('closeCart');
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartEmpty = document.getElementById('cartEmpty');
+    const clearCartBtn = document.getElementById('clearCartBtn');
+    let cart = [];
+
+    function showCart() {
+      cartSidebar.style.right = '0';
+      renderCart();
+    }
+    function hideCart() {
+      cartSidebar.style.right = '-350px';
+    }
+    openCartBtn.addEventListener('click', showCart);
+    closeCart.addEventListener('click', hideCart);
+
+    function renderCart() {
+      cartItemsDiv.innerHTML = '';
+      if (cart.length === 0) {
+        cartEmpty.style.display = '';
+        // Remove total if cart is empty
+        const totalDiv = document.getElementById('cartTotal');
+        if (totalDiv) totalDiv.remove();
+        return;
+      }
+      cartEmpty.style.display = 'none';
+      let total = 0;
+      cart.forEach(item => {
+        // Remove $ and commas, then parse as float
+        const priceNum = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+        total += priceNum;
+        const div = document.createElement('div');
+        div.style.display = 'flex';
+        div.style.alignItems = 'center';
+        div.style.marginBottom = '1em';
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" style="width:60px;height:45px;object-fit:cover;border-radius:6px;margin-right:1em;">
+          <div>
+            <div style="font-weight:bold;">${item.name}</div>
+            <div style="color:#555;">${item.brand}</div>
+            <div style="color:#e67e22;font-weight:bold;">${item.price}</div>
+          </div>
+        `;
+        cartItemsDiv.appendChild(div);
+      });
+
+      // Show total in rupees (1 USD = 83 INR approx)
+      let totalDiv = document.getElementById('cartTotal');
+      if (!totalDiv) {
+        totalDiv = document.createElement('div');
+        totalDiv.id = 'cartTotal';
+        totalDiv.style = 'margin-top:1.5em;font-size:1.1em;font-weight:bold;color:#243656;';
+        cartSidebar.appendChild(totalDiv);
+      }
+      const rupees = Math.round(total * 83);
+      totalDiv.innerHTML = `Total: <span style="color:#e67e22;">₹${rupees.toLocaleString()}</span>`;
+    }
+
+    // Add to Cart button
+    document.querySelectorAll('.card-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = btn.closest('.product-card');
+        const img = card.querySelector('.product-thumb').src;
+        const name = card.dataset.name;
+        const brand = card.dataset.brand;
+        const price = card.querySelector('.price').textContent;
+        cart.push({ img, name, brand, price });
+        renderCart();
+        showCart();
+      });
+    });
+
+    // Clear Cart button
+    clearCartBtn.addEventListener('click', function() {
+      cart = [];
+      renderCart();
+    });
+
+    // Basic Product search/filter
+    const searchInput = document.getElementById('searchInput');
+    const productContainer = document.getElementById('productContainer');
+    const productCards = Array.from(document.querySelectorAll('.product-card'));
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      productCards.forEach(card => {
+        const brand = card.dataset.brand.toLowerCase();
+        const name = card.dataset.name.toLowerCase();
+        const show = brand.includes(query) || name.includes(query);
+        card.style.display = show ? 'flex' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
